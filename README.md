@@ -1,8 +1,8 @@
 # 서버리스로 이미지에서 텍스트 추출하기 
 
-여기서는 이미지에서 텍스트를 추출할때 Textrect를 사용하는 방법에 대해 설명합니다. 유사한 기능을 하는 AWS 서비스중에 Rekognition은 현재 이미지당 100자 제한이 있지만, Textrect는 이런 제한이 없습니다. 
+여기서는 이미지에서 텍스트를 추출할때 Textract를 사용하는 방법에 대해 설명합니다. 유사한 기능을 하는 AWS 서비스중에 Rekognition은 현재 이미지당 100자 제한이 있지만, Textract는 이런 제한이 없습니다. 
 
-Textrect로 이미지 1장에 대한 변환시 아래와 같은 결과를 얻을 수 있었습니다.
+Textract로 이미지 1장에 대한 변환시 아래와 같은 결과를 얻을 수 있었습니다.
 
 
 [텍스트 추출에 이용한 이미지]
@@ -48,7 +48,7 @@ Textrect 조회시 사용하는 파라메터에는 아래와 같은 정보가 �
 ```    
 
 
-Textrect에 synchrouns로 요청시는 detectDocumentText를 사용합니다. 
+Textract에 synchrouns로 요청시는 detectDocumentText를 사용합니다. 
 
 ```java
     try {
@@ -103,13 +103,13 @@ https://github.com/kyopark2014/lambda-textextract
 
 ## Asynchronous 방법
 
-Asyncronous 방법으로 구현시는 사용자가 API Gateway로 올린 이미지를 S3에 저장후 Syncronous와 마찬가지로 Textrect에 요청합니다. Textrect는 Job ID를 Lambda (Textrect)에 전달하고, 결과는 분석이 완료한 후에 SNS로 publish 합니다. Labmda (result)는 SNS에서 event가 trigger되면, Job Id를 evnet에서 확인후 다시 Textrect에 결과를 조회합니다. 결과는 Json형태로 전달되면 이를 사용하기 위해서 text로 변환 합니다. 
+Asynchronous 방법으로 구현시는 사용자가 API Gateway로 올린 이미지를 S3에 저장후 Synchronous와 마찬가지로 Textrect에 요청합니다. Textract는 Job ID를 Lambda (Textract)에 전달하고, 결과는 분석이 완료한 후에 SNS로 publish 합니다. Labmda (result)는 SNS에서 event가 trigger되면, Job Id를 evnet에서 확인후 다시 Textract에 결과를 조회합니다. 결과는 Json형태로 전달되면 이를 사용하기 위해서 text로 변환 합니다. 
 
 <img width="533" alt="image" src="https://user-images.githubusercontent.com/52392004/158508654-3e820243-8d2f-4c37-adfc-020d267f8ffe.png">
 
-Asynchronous 방법으로 구현시는 사용자가 API Gateway로 올린 이미지를 S3에 저장후 Syncronous와 마찬가지로 Textrect에 요청합니다. Textrect는 Job ID를 Lambda (Textrect)에 전달하고, 결과는 분석이 완료한 후에 SNS로 publish 합니다. Labmda (result)는 SNS에서 event가 trigger되면, Job Id를 evnet에서 확인후 다시 Textrect에 결과를 조회합니다. 결과는 Json형태로 전달되면 이를 사용하기 위해서 text로 변환 합니다.
+Asynchrhonous 방법으로 구현시는 사용자가 API Gateway로 올린 이미지를 S3에 저장후 Synchronous와 마찬가지로 Textrect에 요청합니다. Textract는 Job ID를 Lambda (Textract)에 전달하고, 결과는 분석이 완료한 후에 SNS로 publish 합니다. Labmda (result)는 SNS에서 event가 trigger되면, Job Id를 evnet에서 확인후 다시 Textract에 결과를 조회합니다. 결과는 Json형태로 전달되면 이를 사용하기 위해서 text로 변환 합니다.
 
-Asynchronous인 경우에는 textrect에 NofitionChannel 정보를 아래와 같이 전달합니다. 
+Asynchronous인 경우에는 textract에 NofitionChannel 정보를 아래와 같이 전달합니다. 
 
 ```java
     const params = { 
@@ -129,7 +129,7 @@ Asynchronous인 경우에는 textrect에 NofitionChannel 정보를 아래와 같
     };
 ```
 
-Textrect에 아래와 같이 분석을 요청 합니다. 
+Textract에 아래와 같이 분석을 요청 합니다. 
 
 ```java
     try {
