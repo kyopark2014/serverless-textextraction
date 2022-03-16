@@ -71,6 +71,9 @@ Textrect에 syncrouns로 요청시는 detectDocumentText를 사용합니다.
             },
 ```      
 
+상세한 구현 사항은 아래 lambda-textextract repository를 참고 합니다. 
+
+https://github.com/kyopark2014/lambda-textextract
 
 
 ## Asynchronous 방법
@@ -101,5 +104,36 @@ Asynchronous인 경우에는 textrect에 NofitionChannel 정보를 아래와 같
     };
 ```
 
-Textrect에 아래와 같이 요청시 
-Text ㄱ
+Textrect에 아래와 같이 분석을 요청 합니다. 
+
+```java
+    try {
+        const result = await TEXTRACT.startDocumentAnalysis(params).promise();
+        console.log('result: '+ JSON.stringify(result));
+             
+        var jobId = result.JobId;
+        console.log('jobId: '+jobId);
+    } catch(error) {
+        console.log(error);
+    }
+```
+
+결과는 아래와 같이 job ID를 가지고 getDocumentAnalysis로 조회합니다. 
+
+```java
+        const getParms = {
+            JobId: jobId 
+        }
+        try {
+            data = await TEXTRACT.getDocumentAnalysis(getParms).promise();
+            console.log('result: '+ JSON.stringify(data));
+        } catch(error) {
+            console.log(error);
+        }  
+```        
+
+상세한 구현 사항은 아래 lambda-textextract와 lambda-textract-result repository들을 참고 합니다. 
+
+https://github.com/kyopark2014/lambda-textextract
+
+https://github.com/kyopark2014/lambda-textract-result
