@@ -1,7 +1,25 @@
 # 서버리스로 이미지에서 텍스트 추출하기 
 
-여기서는 이미지에서 텍스트를 추출할때 Textrect를 사용하는 방법에 대해 설명합니다. 
-유사한 기능을 하는 AWS 서비스중에 Rekognition은 현재 이미지당 100자 제한이 있지만, Textrect는 이런 제한이 없습니다. 
+여기서는 이미지에서 텍스트를 추출할때 Textrect를 사용하는 방법에 대해 설명합니다. 유사한 기능을 하는 AWS 서비스중에 Rekognition은 현재 이미지당 100자 제한이 있지만, Textrect는 이런 제한이 없습니다. 
+
+Textrect로 이미지 1장에 대한 변환시 아래와 같은 결과를 얻을 수 있었습니다.
+
+[async로 할 경우]
+
+소요시간은 15초 입니다.
+
+2022-03-16T02:09:03.394Z	e9ea449c-f624-40d8-9194-b9786b1dfaab	INFO	result: {
+    "JobId": "157a95b2c75977f499bbb6139749a81d6d051708f94dda71f00dfd57769cafc7"
+}
+
+2022-03-16T02:09:18.045Z	d416c5fc-f431-442a-b474-9f6e00c0d3e8	INFO	text: Cinderella and the mice went to ask Gabrielle about the last time she remembered seeing the bracelet, but she couldn't remember. "I can help you look," a soft voice said. It was Babette, stepping out of her little house. Jaq and Gus looked suspiciously at Babette, but Cinderella spoke up for her. "That would be wonderful. Thank you, Babette!" Gus and Jaq reluctantly agreed. "We check the mouse-size places and Cinderelly check the princess-size places." The three mice scurried from room to room. They looked behind curtains, on top of cabinets, and even in the tea room. Gus checked inside an entire tea set. "Gus-Gus, Cinderelly's bracelet isn't in a teapot," Jaq laughed. Gus looked embarrassed, but Babette spoke up quietly. "It never hurts to check."
+
+[asynchronous로 할 경우]
+
+소요시간은 2.1초 입니다. 
+
+2022-03-16T02:42:40.886Z	1a18b74d-b54a-431c-8f1e-16a01402d285	INFO	elapsed time for syncronous textract: 2.1
+
 
 ## Synncronus 방법 
 
