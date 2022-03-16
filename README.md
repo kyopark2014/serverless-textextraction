@@ -30,7 +30,7 @@ Syncronous 방법으로 텍스트 추출시에 구조는 아래와 같습니다.
 Textrect 조회시 사용하는 파라메터에는 아래와 같은 정보가 있습니다. 
 
 ```java
-    const syncronousParams = {
+    const synchronousParams = {
         Document: {
           S3Object: {
             Bucket: bucket,
@@ -41,11 +41,11 @@ Textrect 조회시 사용하는 파라메터에는 아래와 같은 정보가 �
 ```    
 
 
-Textrect에 syncrouns로 요청시는 detectDocumentText를 사용합니다. 
+Textrect에 synchrouns로 요청시는 detectDocumentText를 사용합니다. 
 
 ```java
     try {
-        data = await TEXTRACT.detectDocumentText(syncronousParams).promise();
+        data = await TEXTRACT.detectDocumentText(synchronousParams).promise();
         console.log('result: '+ JSON.stringify(data));             
     } catch(error) {
         console.log(error);
