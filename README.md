@@ -7,8 +7,8 @@ Textrect로 이미지 1장에 대한 변환시 아래와 같은 결과를 얻을
 
 [텍스트 추출을 위한 이미지의 예]
 
+![longwords-rotate](https://user-images.githubusercontent.com/52392004/158514855-70ba231c-bcf7-4026-a9a1-5c5cd115236e.jpeg)
 
-![longwords](https://user-images.githubusercontent.com/52392004/158514743-4035ecb5-7481-468c-9cdb-e9cc665eaea2.jpeg)
 
 
 [Async로 할 경우]
