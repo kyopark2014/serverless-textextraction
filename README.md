@@ -123,8 +123,8 @@ Asynchronous인 경우에는 textract에 NofitionChannel 정보를 아래와 같
             'TABLES', 'FORMS'
         ],
         NotificationChannel: {
-            RoleArn: 'arn:aws:iam::677146750822:role/textract-sns',
-            SNSTopicArn: 'arn:aws:sns:ap-northeast-2:677146750822:sns-textract'
+            RoleArn: 'arn:aws:iam::****:role/textract-sns',
+            SNSTopicArn: 'arn:aws:sns:ap-northeast-2:****:sns-textract'
         } 
     };
 ```
