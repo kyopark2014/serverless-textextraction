@@ -25,10 +25,10 @@ Textract로 이미지 1장에 대한 변환시 아래와 같은 결과를 얻을
 
 소요시간은 2.1초 입니다. 
 
-2022-03-16T02:42:40.886Z	1a18b74d-b54a-431c-8f1e-16a01402d285	INFO	elapsed time for syncronous textract: 2.1
+2022-03-16T02:42:40.886Z	1a18b74d-b54a-431c-8f1e-16a01402d285	INFO	elapsed time for synchronous textract: 2.1
 
 
-## Synnchronus 방법 
+## Synchronous 방법 
 
 Synchronous 방법으로 텍스트 추출시에 구조는 아래와 같습니다. 사용자가 API Gateway를 통해 이미지를 업로드하면 Lambda가 S3에 저장하고 이 정보를 Textrect에 전달하여 분석합니다. 분석한 결과는 로그로 추출하지만 SNS를 통해 이메일등으로 발송 할 수 있습니다. 
 
@@ -48,7 +48,7 @@ Textrect 조회시 사용하는 파라메터에는 아래와 같은 정보가 �
 ```    
 
 
-Textract에 synchrouns로 요청시는 detectDocumentText를 사용합니다. 
+Textract에 Synchronous로 요청시는 detectDocumentText를 사용합니다. 
 
 ```java
     try {
@@ -103,11 +103,11 @@ https://github.com/kyopark2014/lambda-textextract
 
 ## Asynchronous 방법
 
-Asynchronous 방법으로 구현시는 사용자가 API Gateway로 올린 이미지를 S3에 저장후 Synchronous와 마찬가지로 Textrect에 요청합니다. Textract는 Job ID를 Lambda (Textract)에 전달하고, 결과는 분석이 완료한 후에 SNS로 publish 합니다. Labmda (result)는 SNS에서 event가 trigger되면, Job Id를 evnet에서 확인후 다시 Textract에 결과를 조회합니다. 결과는 Json형태로 전달되면 이를 사용하기 위해서 text로 변환 합니다. 
+Asynchronous 방법으로 구현시는 사용자가 API Gateway로 올린 이미지를 S3에 저장후 Synchronous와 마찬가지로 Textrect에 요청합니다. Textract는 Job ID를 Lambda (Textract)에 전달하고, 결과는 분석이 완료한 후에 SNS로 publish 합니다. Lambda (result)는 SNS에서 event가 trigger되면, Job Id를 event에서 확인후 다시 Textract에 결과를 조회합니다. 결과는 Json형태로 전달되면 이를 사용하기 위해서 text로 변환 합니다. 
 
 <img width="533" alt="image" src="https://user-images.githubusercontent.com/52392004/158508654-3e820243-8d2f-4c37-adfc-020d267f8ffe.png">
 
-Asynchrhonous 방법으로 구현시는 사용자가 API Gateway로 올린 이미지를 S3에 저장후 Synchronous와 마찬가지로 Textrect에 요청합니다. Textract는 Job ID를 Lambda (Textract)에 전달하고, 결과는 분석이 완료한 후에 SNS로 publish 합니다. Labmda (result)는 SNS에서 event가 trigger되면, Job Id를 evnet에서 확인후 다시 Textract에 결과를 조회합니다. 결과는 Json형태로 전달되면 이를 사용하기 위해서 text로 변환 합니다.
+Asynchrhonous 방법으로 구현시는 사용자가 API Gateway로 올린 이미지를 S3에 저장후 Synchronous와 마찬가지로 Textrect에 요청합니다. Textract는 Job ID를 Lambda (Textract)에 전달하고, 결과는 분석이 완료한 후에 SNS로 publish 합니다. Lambda (result)는 SNS에서 event가 trigger되면, Job Id를 event에서 확인후 다시 Textract에 결과를 조회합니다. 결과는 Json형태로 전달되면 이를 사용하기 위해서 text로 변환 합니다.
 
 Asynchronous인 경우에는 textract에 NofitionChannel 정보를 아래와 같이 전달합니다. 
 
