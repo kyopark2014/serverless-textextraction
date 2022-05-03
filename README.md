@@ -112,6 +112,9 @@ Asynchronous 방법으로 구현시는 사용자가 API Gateway로 올린 이미
 
 Asynchrhonous 방법으로 구현시는 사용자가 API Gateway로 올린 이미지를 S3에 저장후 Synchronous와 마찬가지로 Textrect에 요청합니다. Textract는 Job ID를 Lambda (Textract)에 전달하고, 결과는 분석이 완료한 후에 SNS로 publish 합니다. Lambda (result)는 SNS에서 event가 trigger되면, Job Id를 event에서 확인후 다시 Textract에 결과를 조회합니다. 결과는 Json형태로 전달되면 이를 사용하기 위해서 text로 변환 합니다.
 
+
+[Lambda for Textraction](https://github.com/kyopark2014/serverless-textextraction/tree/main/lambda-textextraction)에서는 Asynchronous하게 텍스트를 추출하는 방법에 대해 설명합니다. 
+
 Asynchronous인 경우에는 textract에 NofitionChannel 정보를 아래와 같이 전달합니다. 
 
 ```java
