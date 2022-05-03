@@ -1,0 +1,12 @@
+{
+  "name": "lambda-textract-result",
+  "version": "1.0.0",
+  "description": "이 Repsitory는 [서버리스로 이미지에서 텍스트 추출하기](https://github.com/kyopark2014/serverless-textextraction)의 Asynchronous 방식에서 데이터를 추출하는 Lambda의 코드관리를 위함입니다.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
