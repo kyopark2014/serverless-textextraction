@@ -4,6 +4,9 @@
 
 Textract로 이미지 1장에 대한 변환시 아래와 같은 결과를 얻을 수 있었습니다.
 
+[Text Extraction]
+
+[Lambda for Textraction](https://github.com/kyopark2014/serverless-textextraction/tree/main/lambda-textextraction)에서는 Synchronous하게 텍스트를 추출하는 방법에 대해 설명합니다. 
 
 [텍스트 추출에 이용한 이미지]
 
