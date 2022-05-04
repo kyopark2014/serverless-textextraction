@@ -166,6 +166,6 @@ Textract에 아래와 같이 분석을 요청 합니다.
 
 상세한 구현 사항은 아래 lambda-textextract와 lambda-textract-result repository들을 참고 합니다. 
 
-https://github.com/kyopark2014/lambda-textextract
+https://github.com/kyopark2014/serverless-textextraction/tree/main/lambda-textextraction
 
-https://github.com/kyopark2014/lambda-textract-result
+https://github.com/kyopark2014/serverless-textextraction/tree/main/lambda-textract-result
